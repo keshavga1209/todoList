@@ -1,38 +1,254 @@
-.App {
-  text-align: center;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-image: linear-gradient(120deg, #000000 0%, #0f0f0fb9 100%);
+  color: white;
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+}
+header {
+  font-size: 2rem;
 }
 
-.App-logo {
-  height: 40vmin;
+.head {
+  font: outline;
+}
+
+
+.head {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  
+  text-decoration: none;
+
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
+  letter-spacing: 4px
+}
+
+.head:hover {
+  /* background: #03e9f4; */
+  background: #03e9f4;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #03e9f4,
+              0 0 25px #03e9f4,
+              0 0 50px #03e9f4,
+              0 0 100px #03e9f4;
+}
+
+.head span{
+  position: absolute;
+  display: block;
+}
+
+.head span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #03e9f4);
+  animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+  50%,100% {
+    left: 100%;
+  }
+}
+
+.head span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #03e9f4);
+  animation: btn-anim2 1s linear infinite;
+  animation-delay: .25s
+}
+
+@keyframes btn-anim2 {
+  0% {
+    top: -100%;
+  }
+  50%,100% {
+    top: 100%;
+  }
+}
+
+.head span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #03e9f4);
+  animation: btn-anim3 1s linear infinite;
+  animation-delay: .5s
+}
+
+@keyframes btn-anim3 {
+  0% {
+    right: -100%;
+  }
+  50%,100% {
+    right: 100%;
+  }
+}
+
+.head span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #03e9f4);
+  animation: btn-anim4 1s linear infinite;
+  animation-delay: .75s
+}
+
+@keyframes btn-anim4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,100% {
+    bottom: 100%;
+  }
+}
+
+/* -//////////-------------------------------------------------///////////////--------/--------- */
+
+header,
+form {
+  min-height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+form input,
+form button {
+  padding: 0.5rem;
+  font-size: 2rem;
+  border: none;
+  background: white;
+  font-style: oblique;
+  
+}
+form button {
+  color: #475817;
+  background: #f7fffe;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+form button:hover {
+  background: #8d47ff;
+  color: white;
+}
+.todo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.todo-list {
+  min-width: 30%;
+  list-style: none;
+}
+
+.todo {
+  margin: 0.5rem;
+  background: white;
+  font-size: 1.5rem;
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 1s ease;
+}
+.filter-todo {
+  padding: 1rem;
+}
+.todo li {
+  flex: 1;
+}
+
+.trash-btn,
+.complete-btn {
+  background: #ff4747;
+  color: white;
+  border: none;
+  padding: 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.complete-btn {
+  background: rgb(18, 212, 11);
+}
+.todo-item {
+  padding: 0rem 0.5rem;
+  list-style-type:none;
+}
+
+.fa-trash,
+.fa-check {
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.fall {
+  transform: translateY(10rem) rotateZ(20deg);
+  opacity: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
 }
 
-.App-link {
-  color: #61dafb;
+/*CUSTOM SELECTOR */
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0 !important;
+  background-image: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Custom Select */
+.select {
+  margin: 1rem;
+  position: relative;
+  overflow: hidden;
+  
 }
+select {
+  color: #ff4747;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+  width: 12rem;
+}
+/* Arrow */
+.select::after {
+  content: "\25BC";
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1rem;
+  background: #ff6f47;
+  cursor: pointer;
+  pointer-events: none;
+}
+/* Transition */
+/*
+.select:hover::after {
+  transform: scale(1.5);
+}
+*/
